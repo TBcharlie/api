@@ -41,15 +41,15 @@ module.exports = {
     inserirUsuario: async(req, res) => {
         let json = {error:'', result:{}};
 
-        let email = req.query.email;
-        let senha = req.query.senha;
-        let cep = req.query.cep;
-        let rua = req.query.rua;
-        let numero = req.query.numero;
-        let bairro = req.query.bairro;
-        let cidade = req.query.cidade;
-        let estado = req.query.estado;
-        let nome = req.query.nome;
+        let email = req.body.email;
+        let senha = req.body.senha;
+        let cep = req.body.cep;
+        let rua = req.body.rua;
+        let numero = req.body.numero;
+        let bairro = req.body.bairro;
+        let cidade = req.body.cidade;
+        let estado = req.body.estado;
+        let nome = req.body.nome;
 
         if (email && senha && cep && rua && numero && bairro && cidade && estado && nome){
             let idUsuario = await Service.inserirUsuario(email, senha, cep, rua, numero, bairro, cidade, estado, nome);
@@ -75,15 +75,15 @@ module.exports = {
         let json = {error:'', result:{}};
 
         let id = req.params.id;
-        let email = req.query.email;
-        let senha = req.query.senha;
-        let cep = req.query.cep;
-        let rua = req.query.rua;
-        let numero = req.query.numero;
-        let bairro = req.query.bairro;
-        let cidade = req.query.cidade;
-        let estado = req.query.estado;
-        let nome = req.query.nome;
+        let email = req.body.email;
+        let senha = req.body.senha;
+        let cep = req.body.cep;
+        let rua = req.body.rua;
+        let numero = req.body.numero;
+        let bairro = req.body.bairro;
+        let cidade = req.body.cidade;
+        let estado = req.body.estado;
+        let nome = req.body.nome;
 
         if (id && email && senha && cep && rua && numero && bairro && cidade && estado && nome){
             await Service.alterarUsuario(email, senha, cep, rua, numero, bairro, cidade, estado, nome, id);
