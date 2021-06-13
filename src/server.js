@@ -6,7 +6,24 @@ const port = process.env.PORT || 3000;
 const routes = require('./routes');
 
 const server = express();
-server.use(cors());
+
+
+
+
+
+
+server.use((req, res, next)=>{
+    //console.log("Acessou o Middleware!");
+    res.header("Access-Control-Allow-Origin", "*");
+    server.use(cors());
+    next();
+});
+
+
+
+
+
+
 server.use(bodyParser.urlencoded({extended: false}));
 server.use('/', routes);
 
