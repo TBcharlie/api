@@ -1,0 +1,109 @@
+const Service = require('../services/ServiceUsuario');
+
+module.exports = {
+    
+    buscarTodosUsuarios: async (req, res) => {
+        let json = {error:'', result:[]};
+
+        let usuarios = await Service.buscarTodosUsuarios();
+
+        for(let i in usuarios){
+            json.result.push({
+                id: usuarios[i].id,
+                email: usuarios[i].email,
+                senha: usuarios[i].senha,
+                cep: usuarios[i].cep,
+                rua: usuarios[i].rua,
+                numero: usuarios[i].numero,
+                bairro: usuarios[i].bairro,
+                cidade: usuarios[i].cidade,
+                estado: usuarios[i].estado,
+                nome: usuarios[i].nome
+            });
+        }
+
+        res.json(json);
+    },
+
+    buscarUmUsuario: async (req, res) => {
+        let json = {error:'', result:{}};
+
+        let email = req.params.email; //para pegar o parametro
+        let usuario = await Service.buscarUmUsuario(email);
+
+        if(usuario){
+            json.result = usuario; //se tiver nota ele joga no json
+        }
+
+        res.json(json);
+    },
+
+    inserirUsuario: async(req, res) => {
+        let json = {error:'', result:{}};
+
+        let email = req.query.email;
+        let senha = req.query.senha;
+        let cep = req.query.cep;
+        let rua = req.query.rua;
+        let numero = req.query.numero;
+        let bairro = req.query.bairro;
+        let cidade = req.query.cidade;
+        let estado = req.query.estado;
+        let nome = req.query.nome;
+
+        if (email && senha && cep && rua && numero && bairro && cidade && estado && nome){
+            let idUsuario = await Service.inserirUsuario(email, senha, cep, rua, numero, bairro, cidade, estado, nome);
+            json.result = {
+                id: idUsuario,
+                email,
+                senha,
+                cep,
+                rua,
+                numero,
+                bairro,
+                cidade,
+                estado,
+                nome
+            };
+        }else{
+            json.error = 'Campos não enviados';
+        }
+        res.json(json);
+    },
+
+    alterarUsuario: async(req, res) => {
+        let json = {error:'', result:{}};
+
+        let id = req.params.id;
+        let email = req.query.email;
+        let senha = req.query.senha;
+        let cep = req.query.cep;
+        let rua = req.query.rua;
+        let numero = req.query.numero;
+        let bairro = req.query.bairro;
+        let cidade = req.query.cidade;
+        let estado = req.query.estado;
+        let nome = req.query.nome;
+
+        if (id && email && senha && cep && rua && numero && bairro && cidade && estado && nome){
+            await Service.alterarUsuario(email, senha, cep, rua, numero, bairro, cidade, estado, nome, id);
+            json.result = {
+                id,
+                email,
+                senha,
+                cep,
+                rua,
+                numero,
+                bairro,
+                cidade,
+                estado,
+                nome
+            };
+        }else{
+            json.error = 'Campos não enviados';
+        }
+        res.json(json);
+    },
+}
+
+
