@@ -26,7 +26,7 @@ module.exports = {
     },
 
     buscarUmUsuario: async (req, res) => {
-        let json = {error:'', result:{}};
+        let json = {result:{}};
 
         let email = req.params.email; //para pegar o parametro
         let senha = req.params.senha;
