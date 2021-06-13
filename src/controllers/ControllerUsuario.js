@@ -3,7 +3,7 @@ const Service = require('../services/ServiceUsuario');
 module.exports = {
     
     buscarTodosUsuarios: async (req, res) => {
-        let json = {result:[]};
+        let json = {result};
 
         let usuarios = await Service.buscarTodosUsuarios();
 
