@@ -29,7 +29,8 @@ module.exports = {
         let json = {result:[]};
 
         let email = req.query.email; //para pegar o parametro
-        let usuario = await Service.buscarUmUsuario(email);
+        let senha = req.query.senha;
+        let usuario = await Service.buscarUmUsuario(email, senha);
 
         if(usuario){
             json.result = usuario; //se tiver nota ele joga no json
