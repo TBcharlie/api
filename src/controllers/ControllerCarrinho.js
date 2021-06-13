@@ -18,8 +18,8 @@ module.exports = {
     inserirCarrinho: async(req, res) => {
         let json = {error:'', result:{}};
 
-        let user_id = req.query.user_id;
-        let produtos = req.query.produtos;
+        let user_id = req.body.user_id;
+        let produtos = req.body.produtos;
 
         if (user_id && produtos){
             let idUsuario = await Service.inserirCarrinho(user_id, produtos);
@@ -37,7 +37,7 @@ module.exports = {
         let json = {error:'', result:{}};
 
         let user_id = req.params.user_id;
-        let produtos = req.query.produtos;
+        let produtos = req.body.produtos;
 
         if (user_id && produtos){
             await Service.alterarCarrinho(produtos, user_id);
