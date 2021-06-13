@@ -5,10 +5,10 @@ module.exports = {
     inserirPedido: async(req, res) => {
         let json = {error:'', result:{}};
 
-        let comprador = req.body.comprador;
-        let email = req.body.email;
-        let compra = req.body.compra;
-        let endereco = req.body.endereco;
+        let comprador = req.query.comprador;
+        let email = req.query.email;
+        let compra = req.query.compra;
+        let endereco = req.query.endereco;
 
         if (comprador && email && compra && endereco){
             let idUsuario = await Service.inserirPedido(comprador, email, compra, endereco);
