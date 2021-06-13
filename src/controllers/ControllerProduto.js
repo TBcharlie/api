@@ -43,22 +43,22 @@ module.exports = {
     inserirUsuario: async(req, res) => {
         let json = {error:'', result:{}};
 
-        let nome = req.query.nome;
-        let email = req.query.email;
-        let senha = req.query.senha;
-        let cpf = req.query.cpf;
-        let cidade = req.query.cidade;
-        let bairro = req.query.bairro;
-        let numero = req.query.numero;
-        let uf = req.query.uf;
-        let cep = req.query.cep;
-        let data_nascimento = req.query.data_nascimento;
-        let telefone = req.query.telefone;
+        let nome = req.body.nome;
+        let email = req.body.email;
+        let senha = req.body.senha;
+        let cpf = req.body.cpf;
+        let cidade = req.body.cidade;
+        let bairro = req.body.bairro;
+        let numero = req.body.numero;
+        let uf = req.body.uf;
+        let cep = req.body.cep;
+        let data_nascimento = req.body.data_nascimento;
+        let telefone = req.body.telefone;
 
         if (nome && email && senha && cpf && cidade && bairro && numero && uf && cep && data_nascimento && telefone){
             let idUsuario = await Service.inserirUsuario(nome, email, senha, cpf, cidade, bairro, numero, uf, cep, data_nascimento, telefone);
             json.result = {
-                id_cliente: idUsuario,
+                id: idUsuario,
                 nome,
                 email,
                 senha,
