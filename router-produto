@@ -1,0 +1,6 @@
+const ControllerProduto = require('./controllers/ControllerProduto');
+router.get('/produtos', ControllerProduto.buscarTodosProdutos);//buscar todos produtos
+router.get('/produto/:nome_do_produto', ControllerProduto.buscarProduto);//buscar produto pelo nome
+router.get('/produtos/:cervejas', ControllerProduto.buscarTodasCervejas);//buscar todas cervejas
+router.get('/produtos/:salgados', ControllerProduto.buscarTodosSalgados);//buscar todos salgados
+router.get('/produtos/:outros', ControllerProduto.buscarTodosOutrosProdutos);//buscar todos outros produtos
