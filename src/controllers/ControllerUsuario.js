@@ -3,7 +3,6 @@ const Service = require('../services/ServiceUsuario');
 module.exports = {
     
     buscarTodosUsuarios: async (req, res) => {
-        let json = {error:'', result:[]};
 
         let usuarios = await Service.buscarTodosUsuarios();
 
@@ -26,7 +25,6 @@ module.exports = {
     },
 
     buscarUmUsuario: async (req, res) => {
-        let json = {error:'', result:{}};
 
         let email = req.params.email; //para pegar o parametro
         let usuario = await Service.buscarUmUsuario(email);
@@ -39,7 +37,6 @@ module.exports = {
     },
 
     inserirUsuario: async(req, res) => {
-        let json = {error:'', result:{}};
 
         let email = req.body.email;
         let senha = req.body.senha;
@@ -72,7 +69,6 @@ module.exports = {
     },
 
     alterarUsuario: async(req, res) => {
-        let json = {error:'', result:{}};
 
         let id = req.params.id;
         let email = req.body.email;
