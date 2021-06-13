@@ -28,7 +28,7 @@ module.exports = {
     buscarUmUsuario: async (req, res) => {
         let json = {result:{}};
 
-        let email = req.params.email; //para pegar o parametro
+        let email = req.query.email; //para pegar o parametro
         let usuario = await Service.buscarUmUsuario(email);
 
         if(usuario){
