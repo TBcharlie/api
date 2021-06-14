@@ -29,7 +29,7 @@ server.use((req, res, next)=>{
 
 
 
-app.use(bodyParser.urlencoded({
+server.use(bodyParser.urlencoded({
   extended: true
 }));
 server.use('/', routes);
