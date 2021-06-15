@@ -14,7 +14,7 @@ router.put('/carrinho/:user_id', ControllerCarrinho.alterarCarrinho);//alterar d
 
 const ControllerPedido = require('./controllers/ControllerPedido');
 router.post('/pedido',function(req,res){
-  console.dir(req.body);
+  console.log(req.body);
   res.send("fechou aqui");
 });//inserir carrinho do usuário na base de dados
 
