@@ -13,7 +13,10 @@ router.post('/carrinho', ControllerCarrinho.inserirCarrinho);//inserir carrinho 
 router.put('/carrinho/:user_id', ControllerCarrinho.alterarCarrinho);//alterar dados do carrinho
 
 const ControllerPedido = require('./controllers/ControllerPedido');
-router.post('/pedido', ControllerPedido.inserirPedido);//inserir carrinho do usuário na base de dados
+router.post('/pedido',function(req,res){
+  console.dir(req.body);
+  res.send("fechou aqui");
+});//inserir carrinho do usuário na base de dados
 
 module.exports = router;
 
