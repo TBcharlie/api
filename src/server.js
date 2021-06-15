@@ -30,9 +30,11 @@ server.use((req, res, next)=>{
 
 
 
-server.use(bodyParser.urlencoded({
+/*server.use(bodyParser.urlencoded({
   extended: true
-}));
+}));*/
+
+server.use(bodyParser.bodyParser());
 server.use('/', routes);
 
 server.listen(process.env.PORT,()=>{
