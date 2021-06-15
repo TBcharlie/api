@@ -33,7 +33,7 @@ server.use(bodyParser.urlencoded({
   extended: true
 }));
 
-server.use(express.bodyParser());
+server.use(bodyParser.bodyParser());
 server.use('/', routes);
 
 server.listen(process.env.PORT,()=>{
